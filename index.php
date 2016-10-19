@@ -1,14 +1,30 @@
+<?php
+
+session_start();
+if($_GET["lang"]){
+    
+$_SESSION['idiomas']=$_GET["lang"];    
+    
+}elseif(isset ($_SESSION["idiomas"])){
+    $_SESSION["idiomas"]="es";
+    
+}
+
+include ("lang/lang_".$_SESSION["idiomas"].".php");
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
 <head>
 
     <!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Leticias Ghest House</title>
+	<title><?php echo TITULO;?></title>
 	<meta name="description" content="Leticia's guest house">
 	<meta name="author" content="Eracor - Jennifer Cabiativa">
 
@@ -44,22 +60,21 @@
 		<script src="js/html5.js"></script>
 		<script src="js/css3-mediaqueries.js"></script>
 	<![endif]-->
-
 </head>
 
 <body>
 	<div class="wrap-body" class="align-center">
 		<div id='flagsOpt' class="flagsOpt" align="right">
-			<a href="#"><img src="images/USA.png" alt="English"/></a>
-			<a href="#"><img src="images/Colombia.png" alt="Español"/></a>
+                    <a href="index.php?lang=en"><img src="images/USA.png" alt="English"/></a>
+                    <a href="index.php?lang=es"><img src="images/Colombia.png" alt="Español"/></a>
 			<a href="#"><img src="images/France.png" alt="Français"/></a>
 			<a href="#"><img src="images/Germany.png" alt="Deutsch"/></a>
 		</div>
 		<div id='cssmenu' class="align-center">
 			<ul>
-			   <li class="active"><a href='index.html'><span>Inicio</span></a></li>
-			   <li><a href='#Contenido'><span>Fotos</span></a></li>
-			   <li class='last'><a href=#Contacto><span>Contacto</span></a></li>
+			   <li class="active"><a href='index.php'><span><?php echo MENU1; ?></span></a></li>
+			   <li><a href='#Contenido'><span><?php echo MENU2; ?></span></a></li>
+			   <li class='last'><a href=#Contacto><span><?php echo MENU3; ?></span></a></li>
 			</ul>
 		</div>
 		<header class="">
